@@ -648,8 +648,9 @@ int	EVP_DecodeUpdate(EVP_ENCODE_CTX* ctx,ubyte* out_,int* outl,
 int	EVP_DecodeFinal(EVP_ENCODE_CTX* ctx, ubyte* out_, int* outl);
 int	EVP_DecodeBlock(ubyte* t, const(ubyte)* f, int n);
 
-void EVP_CIPHER_CTX_init(EVP_CIPHER_CTX* a);
-int EVP_CIPHER_CTX_cleanup(EVP_CIPHER_CTX* a);
+// Corresponding to the OpenSSL 1.1.0b
+void EVP_CIPHER_CTX_init(EVP_CIPHER_CTX* a); // alias EVP_CIPHER_CTX_reset
+int EVP_CIPHER_CTX_reset(EVP_CIPHER_CTX* a);
 EVP_CIPHER_CTX* EVP_CIPHER_CTX_new();
 void EVP_CIPHER_CTX_free(EVP_CIPHER_CTX* a);
 int EVP_CIPHER_CTX_set_key_length(EVP_CIPHER_CTX* x, int keylen);
